@@ -1,3 +1,7 @@
+let numberInput = document.getElementById("number-input");
+let numberOutput = document.getElementById("number-output");
+let numberButton = document.getElementById("number-button");
+
 let romanSymbols = {
   M: 1000,
   CM: 900,
@@ -14,8 +18,10 @@ let romanSymbols = {
   I: 1
 }
 
-function convertToRoman(num) {
- let symbolArray = [];
+function convertToRoman(input, output) {
+let num = input.value;
+let symbolArray = [];
+ 
  function romanNumbers(symbol, value) {
   let t = Math.floor(num/value);
   let i = 1;
@@ -28,5 +34,5 @@ function convertToRoman(num) {
 for (let property in romanSymbols){
   romanNumbers(property, romanSymbols[property]);
 }
-return symbolArray.join("");
+output.innerHTML = symbolArray.join("");
 }
